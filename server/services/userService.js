@@ -1,7 +1,5 @@
 import axios from "axios";
-/*
-    TODO: IMPORT TOKEN HERE
-*/
+import token from "../../token.js";
 
 export default async (username) => {
   let userData = await axios.get(`https://api.github.com/users/${username}`, {
