@@ -1,21 +1,16 @@
 import GlobalStyles from "./GlobalStyles";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Navbar } from "./components";
-import { inspectUser, duelUsers } from './services/userService'
-import { useEffect } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Navbar, Home, User, Search } from "./components";
+import 'semantic-ui-css/semantic.min.css';
 
 function App() {
-
- 
- // Hook that runs after React has updated the DOM
-  useEffect(() => {
-    inspectUser()
-  }, [])
-
   return (
     <Router>
       <GlobalStyles />
       <Navbar />
+
+      <Route exact path="/" component={Home} />
+      <Route exact path="/inspect" component={Search} />
     </Router>
   );
 }
