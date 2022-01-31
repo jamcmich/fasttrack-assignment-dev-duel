@@ -21,14 +21,42 @@ html {
         font-size: 70%;
     }
 }
+
 body{
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.3;
     font-size: 1.6rem;
     background: #F9F9F9;
     color: #333;
 
+}
+
+.extra.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.meta {
+    margin-top: 0.5em;
+}
+
+.ui.form {
+    width: 30%;
+    font-size: 1vw;
+}
+
+.ui.card {
+    width: 80%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 5vw;
 }
 `;
 

@@ -6,20 +6,33 @@ import User from "../User/User";
 
 const Search = () => {
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
   const [userInput, setUserInput] = useState("");
 
-  // Hook that runs after React has updated the DOM
-  useEffect(() => {
-    setData(inspectUser());
-  }, []);
+  const handleFetch = () => {
+    setLoading(true);
+    inspectUser().then((result) => {
+      setData(result); // sets user data from github api
+      setLoading(false); // then set 'loading' to false
+    });
+  };
 
   const handleSearch = (event) => {
     setUserInput(event.target.value);
   };
 
-  const handleSubmit = () => {
-    setData(inspectUser(userInput));
+  const handleSubmit = (event) => {
+    setLoading(true);
+    inspectUser(userInput).then((result) => {
+      setData(result); // sets user data from github api
+      setLoading(false); // then set 'loading' to false
+    });
   };
+
+  // Hook that runs after React has updated the DOM
+  useEffect(() => {
+    handleFetch();
+  }, []);
 
   return (
     <div className="container">
@@ -33,7 +46,15 @@ const Search = () => {
         </Form.Field>
       </Form>
 
-      <User data={data} />
+      <div>
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <div>
+            <User data={data} />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
