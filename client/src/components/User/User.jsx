@@ -1,14 +1,19 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 
 const User = (props) => {
-  const handleTitles = async () => {
-    let result = await props.data.titles.join(", ");
-    return result;
+  const [titles, setTitles] = useState([]);
+  const handleTitles = () => {
+    let result = props.data.titles.join(", ");
+    setTitles(result);
   };
 
+  useEffect(() => {
+    handleTitles();
+  });
+
   return (
-    <div className="container">
+    <div className="container--data">
       <Card>
         <Image src={props.data["avatar-url"]} wrapped ui={false} />
         <Card.Content>
@@ -26,8 +31,10 @@ const User = (props) => {
           <br></br>
 
           <Card.Description>
-            <Icon name="certificate" />
-            titles
+            <p>
+              <Icon name="certificate" />
+              {titles}
+            </p>
           </Card.Description>
 
           <br></br>

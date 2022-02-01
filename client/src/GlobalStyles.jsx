@@ -51,12 +51,41 @@ body{
     width: 80%;
 }
 
+.container--data, .ui.form, .field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 5vw auto;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    margin: 5vw;
+    margin: 5vw auto;
+}
+
+.container--crosshairs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.crosshairs.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.crosshairs.icon::before {
+    font-size: 4em;
 }
 `;
 
